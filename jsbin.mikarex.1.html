@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2018 by jarabik8810 (http://jsbin.com/mikarex/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+
+<script id="jsbin-javascript">
+function Player() {
+  this.name;
+  this.hitpoints = 100;
+  this.attack = function attack(opponent){
+    opponent.hitpoints -= 10;
+  };
+};
+
+var score = 5;
+
+var p1 = new Player();
+var p2 = new Player();
+
+p1.name = 'Herkules';
+p2.name = 'Poseidon';
+
+var random = Math.floor(Math.random() * 2) +1;
+
+if (random === 1) {
+  
+  p1.attack(p2);
+  
+  Player.prototype.heal = function heal(targetPlayer) {
+    targetPlayer.hitpoints += 5;  
+  }
+  
+  p1.heal(p2);
+  
+    console.log(p2.name + ' hes ' + p2.hitpoints + ' hitpoints left');
+  
+ }else if (random === 2) {
+  p2.attack(p1);
+   
+   Player.prototype.heal = function heal(targetPlayer) {
+     targetPlayer.hitpoints += 5;
+   };
+   
+   p2.heal(p1);
+  
+  console.log(p1.name + ' hes ' + p1.hitpoints + ' hitpoints left');
+  
+};
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
